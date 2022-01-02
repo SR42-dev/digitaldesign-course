@@ -1,0 +1,61 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1c8e470 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0x1cc3940_0 .var "t_a", 0 0;
+v0x1cc39e0_0 .var "t_b", 0 0;
+v0x1cc3a90_0 .net "t_w", 0 0, L_0x1cc3d50; 1 drivers
+v0x1cc3b40_0 .net "t_x", 0 0, L_0x1cc3ea0; 1 drivers
+v0x1cc3c20_0 .net "t_y", 0 0, L_0x1cc40d0; 1 drivers
+v0x1cc3cd0_0 .net "t_z", 0 0, L_0x1cc4190; 1 drivers
+S_0x1c8f030 .scope module, "a1" "and1" 2 6, 3 1, S_0x1c8e470;
+ .timescale 0 0;
+L_0x1cc3d50 .functor AND 1, v0x1cc3940_0, v0x1cc39e0_0, C4<1>, C4<1>;
+L_0x1cc3ea0 .functor OR 1, v0x1cc3940_0, v0x1cc39e0_0, C4<0>, C4<0>;
+L_0x1cc3f50 .functor AND 1, v0x1cc3940_0, v0x1cc39e0_0, C4<1>, C4<1>;
+L_0x1cc40d0 .functor NOT 1, L_0x1cc3f50, C4<0>, C4<0>, C4<0>;
+L_0x1cc4130 .functor OR 1, v0x1cc3940_0, v0x1cc39e0_0, C4<0>, C4<0>;
+L_0x1cc4190 .functor NOT 1, L_0x1cc4130, C4<0>, C4<0>, C4<0>;
+v0x1c7d390_0 .net *"_s4", 0 0, L_0x1cc3f50; 1 drivers
+v0x1cc3440_0 .net *"_s8", 0 0, L_0x1cc4130; 1 drivers
+v0x1cc34e0_0 .net "a", 0 0, v0x1cc3940_0; 1 drivers
+v0x1cc3580_0 .net "b", 0 0, v0x1cc39e0_0; 1 drivers
+v0x1cc3630_0 .alias "w", 0 0, v0x1cc3a90_0;
+v0x1cc36d0_0 .alias "x", 0 0, v0x1cc3b40_0;
+v0x1cc37b0_0 .alias "y", 0 0, v0x1cc3c20_0;
+v0x1cc3850_0 .alias "z", 0 0, v0x1cc3cd0_0;
+    .scope S_0x1c8e470;
+T_0 ;
+    %vpi_call 2 7 "$dumpfile", "dump.vcd";
+    %vpi_call 2 8 "$dumpvars", 1'sb0, S_0x1c8e470;
+    %end;
+    .thread T_0;
+    .scope S_0x1c8e470;
+T_1 ;
+    %vpi_call 2 10 "$monitor", v0x1cc3940_0, v0x1cc39e0_0, v0x1cc3a90_0, v0x1cc3b40_0, v0x1cc3c20_0, v0x1cc3cd0_0;
+    %set/v v0x1cc3940_0, 0, 1;
+    %set/v v0x1cc39e0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x1cc3940_0, 0, 1;
+    %set/v v0x1cc39e0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x1cc3940_0, 1, 1;
+    %set/v v0x1cc39e0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x1cc3940_0, 1, 1;
+    %set/v v0x1cc39e0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x1cc3940_0, 0, 1;
+    %set/v v0x1cc39e0_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "atestbench.v";
+    "a.v";

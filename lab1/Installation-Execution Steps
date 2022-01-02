@@ -1,0 +1,41 @@
+Software Installation steps:
+
+sudo apt-get update
+
+sudo apt-get install iverilog
+
+sudo apt-get install gtkwave
+
+Execution steps:
+
+Program 1.
+
+execute the files a.v and atestbench.v as mentioned below
+ 
+    Step1) iverilog -o aout a.v atestbench.v
+
+   If the compilation went OK, you won't see any output. What this does is create a file called  aout that we can feed to the simulator.
+
+    Step2) vvp aout
+
+You can observe output on the console
+
+    Step3) gtkwave dump.vcd
+
+Output waveform will be observed.
+
+Program 2.
+
+execute the files b.v and btestbench.v as mentioned below
+ 
+    Step1) iverilog -o bout b.v btestbench.v
+
+   If the compilation went OK, you won't see any output. What this does is create a file called  simple.vvp that we can feed to the simulator.
+
+    Step2) vvp bout
+
+You can observe output on the console
+
+    Step3) gtkwave dmp1.vcd
+
+Output waveform will be observed
