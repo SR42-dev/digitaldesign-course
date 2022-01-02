@@ -1,0 +1,53 @@
+Execution steps:
+
+Program 1. (Full adder)
+
+execute the files b.v, c.v and c1testbench.v as mentioned below
+ 
+    Step1) iverilog -o aout b.v c.v c1testbench.v
+
+   If the compilation went OK, you won't see any output. What this does is create a file called  aout that we can feed to the simulator.
+
+    Step2) vvp aout
+
+You can observe output on the console
+
+    Step3) gtkwave dump.vcd
+
+Output waveform will be observed.
+
+Program 2.(Ripple carry adder)- Students have to write d2.v
+
+execute the files d1.v, d2.v and dtestbench.v as mentioned below
+ 
+    Step1) iverilog -o aout d1.v d2. dtestbench.v
+
+   If the compilation went OK, you won't see any output. 
+
+    Step2) vvp aout
+
+You can observe output on the console
+
+    Step3) gtkwave dump.vcd
+
+Output waveform will be observed
+
+Program 3.(2:1 Multiplexer)
+
+execute the files MUX2to1 and testBench2to1 as mentioned below
+ 
+    Step1) iverilog -o aout MUX2to1.v testBench2to1.v
+
+   If the compilation went OK, you won't see any output. 
+
+    Step2) vvp aout
+
+You can observe output on the console
+
+    Step3) gtkwave dump.vcd
+
+Output waveform will be observed
+
+Program 4.(4:1 Multiplexer using 2:1 Multiplexer)- students have to complete MUX4to1.v file
+
+execute the files MUX2to1.v MUX4to1.v and testBench4to1.v using similar steps and observe the output.
